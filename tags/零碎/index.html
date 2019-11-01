@@ -414,11 +414,38 @@
 
 
 
+ 
 
+  
 
   
 
-  
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: '5j8uA4Iop4hCze4x4Q1fAauA-gzGzoHsz',
+    appKey: 'opSqspWJ7rhck0a4lhKxoEQq',
+    placeholder: "说点儿啥呗OUO 大胆地留下你的想法！",
+    avatar: 'hide',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
 
 </body>
 </html>
